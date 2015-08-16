@@ -41,12 +41,12 @@ angular.module('starter.controllers', [])
             {nom: 'Serhat More', categorie: 'Humour', display:1},
             {nom: 'Elle Mady', categorie: 'Humour', display:1},
 
-            {nom: 'Beoriginalisbetter', categorie: 'Beauté', display:1},
-            {nom: 'CarolineSafia', categorie: 'Beauté', display:1},
+            // {nom: 'Beoriginalisbetter', categorie: 'Beauté', display:1},
+            {nom: 'Caroline & Safia', categorie: 'Beauté', display:1},
             {nom: 'EnjoyPhoenix', categorie: 'Beauté', display:1},
             {nom: 'PerfectHonesty', categorie: 'Beauté', display:1},
             {nom: 'Danaëmakeup', categorie: 'Beauté', display:1},
-            {nom: 'Kayeh Hey', categorie: 'Beauté', display:1},
+            {nom: 'Kayehhey', categorie: 'Beauté', display:1},
             {nom: 'Clara Channel', categorie: 'Beauté', display:1},
             {nom: 'Audrey Marshmaloo', categorie: 'Beauté', display:1},
             {nom: 'Emy Ltr', categorie: 'Beauté', display:1},
@@ -60,7 +60,7 @@ angular.module('starter.controllers', [])
             {nom: 'CodJordan23', categorie: 'Gaming', display:1},
             {nom: 'Unsterbliicher', categorie: 'Gaming', display:1},
             {nom: 'Thaek | Look at me & smile', categorie: 'Gaming', display:1},
-            {nom: 'SQUEEZIE', categorie: 'Gaming', display:1},
+            {nom: 'Squeezie', categorie: 'Gaming', display:1},
             {nom: 'Furious Jumper', categorie: 'Gaming', display:1},
             {nom: 'Frigiel', categorie: 'Gaming', display:1},
             {nom: 'Zerator', categorie: 'Gaming', display:1},
@@ -257,6 +257,7 @@ angular.module('starter.controllers', [])
             }
         };
     })
+
 .controller('InscriptionCtrl', function($scope, $ionicModal, $timeout) {
         // Form data for the login modal
         $scope.loginData = {};
