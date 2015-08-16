@@ -24,9 +24,33 @@
      widht:50px;
      height: 50px;
  }
- .nom{
-     border: solid black 1px;
- }
+
+@media (min-width: 300px)
+{
+    .nom{
+        border: solid black 1px;
+        width: 50%;
+        float: left;
+    }
+}
+
+@media (min-width: 640px)
+{
+    .nom{
+        border: solid black 1px;
+        width: 33.33333333333333%;
+        float: left;
+    }
+}
+
+ @media (min-width: 900px)
+ {
+    .nom{
+        border: solid black 1px;
+        width: 25%;
+        float: left;
+    }
+}
 
  #info{
      padding:5px;
