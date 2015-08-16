@@ -1,0 +1,16 @@
+/* Empty. Add your own CSS if you like */
+
+.leo{
+    border-radius: 100%;
+    width: 25%;
+    height: 100%;
+}
+.tamaman{
+    margin-top: 90px;
+    background-color: red;
+}
+
+.toggle input:checked + .track {
+    background-color: #1d2de5;
+    border-color: #4be52f;
+}

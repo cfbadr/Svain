@@ -1,0 +1,35 @@
+<ion-view view-title="Youtubeur">
+    <ion-content>
+        <h1>Les Youtubeurs <img class="list" ng-click="showList()" src="../css/liste.png"></h1>
+            <div>
+                <input class="formulaire" type="text" ng-model="task" ng-init="task=''">
+                <button class="button button-positive" ng-click="Tous()">
+                 Tous
+                </button>
+
+                <button class="button button-positive" ng-click="humour()">
+                 Humour
+                </button>
+
+                <button class="button button-positive" ng-click="Beaute()">
+                  Beauté
+                </button>
+                <button class="button button-positive" ng-click="Gaming()">
+                    Gaming
+                </button>
+                <button class="button button-positive" ng-click="Sport()">
+                    Sport
+                </button>
+                <button class="button button-positive" ng-click="Musique()">
+                    Musique
+                </button>
+                <button class="button button-positive" ng-click="Education()">
+                   Education
+                  </button>
+                <div ng-click="modifyList(user.nom)" class="nom" ng-repeat="user in users | filter:{display:1, nom:task}"  ng-class="{'inList': statusList}"   href="#/app/youtubeur/{{youtubeur.nom}}">
+                    <p> <strong>{{user.nom}}</strong> </p>
+                    <p>{{user.categorie}}</p>
+                </div>
+            </div>
+        </ion-content>
+</ion-view>
