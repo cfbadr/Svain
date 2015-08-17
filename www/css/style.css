@@ -41,32 +41,42 @@ height: auto;
     color: #fff !important;
  }
 
+.box{
+       margin-left: 10%;
+       text-align: center;
+   }
+
 @media (min-width: 300px)
 {
     .nom{
-        border: solid black 1px;
-        width: 50%;
-        height: 300px;
+        /*border: solid black 1px;*/
+        width: 43%;
+        height: 250px;
         float: left;
+        margin: 3px;
     }
 }
 
 @media (min-width: 640px)
 {
     .nom{
-        border: solid black 1px;
-        width: 33.33333333333333%;
-        height: 320px;
+        /*border: solid black 1px;*/
+        width: 29%;
+        height: 255px;
         float: left;
+        margin: 3px
     }
+
 }
 
  @media (min-width: 900px)
  {
     .nom{
-        border: solid black 1px;
-        width: 25%;
+        /*border: solid black 1px;*/
+        width: 17%;
         float: left;
+        height: 205px;
+        margin: 3px;
     }
 }
 
