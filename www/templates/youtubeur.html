@@ -1,43 +1,45 @@
 <ion-view view-title="Youtubeur">
     <ion-content>
-        <h1>Les Youtubeurs <img class="list" ng-click="showList()" src="../css/liste.png"></h1>
-            <div>
+ <!--        <h1>Les Youtubeurs <img class="list" ng-click="showList()" src="../css/liste.png"></h1> -->
+            
+            <div style="text-align: center;">
+                <button class="button tri button-light" ng-click="Tous()">
+                 Tous
+                </button>
 
-            <input type="text" placeholder="Recherche de cartes ..." list="users" data-ng-model="task" ng-init="task=''" />
+                <button class="button tri button-light" ng-click="humour()">
+                 Humour
+                </button>
+
+                <button class="button tri button-light" ng-click="Beaute()">
+                  Beauté
+                </button>
+                <button class="button tri button-light" ng-click="Gaming()">
+                    Gaming
+                </button>
+                <button class="button tri button-light" ng-click="Sport()">
+                    Sport
+                </button>
+                <button class="button tri button-light" ng-click="Musique()">
+                    Musique
+                </button>
+                <button class="button tri button-light" ng-click="Education()">
+                   Education
+                </button>
+                 </div>
+<div>
+
+            <input type="text" placeholder="Recherche un Youtubeur ..." list="users" data-ng-model="task" ng-init="task=''" style="width: 100%; text-align: center;"/>
  
             <datalist id="users">
             <option data-ng-repeat="user in users" value="{{user.nom}}" />
             </datalist>
-
-                <button class="button tri button-positive" ng-click="Tous()">
-                 Tous
-                </button>
-
-                <button class="button tri button-positive" ng-click="humour()">
-                 Humour
-                </button>
-
-                <button class="button tri button-positive" ng-click="Beaute()">
-                  Beauté
-                </button>
-                <button class="button tri button-positive" ng-click="Gaming()">
-                    Gaming
-                </button>
-                <button class="button tri button-positive" ng-click="Sport()">
-                    Sport
-                </button>
-                <button class="button tri button-positive" ng-click="Musique()">
-                    Musique
-                </button>
-                <button class="button tri button-positive" ng-click="Education()">
-                   Education
-                </button>
-
+            </div>
                 <div ng-click="modifyList(user.nom)" class="nom" ng-repeat="user in users | filter:{display:1, nom:task}"  ng-class="{'inList': statusList}"   href="#/app/youtubeur/{{youtubeur.nom}}">
                     <img class="img-responsive" src="../img/{{user.nom}}.jpg">
                     <p> <strong>{{user.nom}}</strong> </p>
                     <p>{{user.categorie}}</p>
                 </div>
-            </div>
+           
         </ion-content>
 </ion-view>
