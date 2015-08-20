@@ -4,8 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
-
+angular.module('starter', ['ionic', 'starter.controllers', "firebase"])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -21,71 +20,98 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
 })
+    .factory("Items", function($firebaseArray) {
+    var itemsRef = new Firebase("https://luminous-fire-9407.firebaseio.com/");
+    return $firebaseArray(itemsRef);
+})
 
-.config(function($stateProvider, $urlRouterProvider) {
+    .factory("InscriptionData", function($firebaseArray) {
+        var inscriptionDataRef = new Firebase("https://luminous-fire-9407.firebaseio.com/");
+        return $firebaseArray(inscriptionDataRef);
+    })
+
+    .factory('Camera', ['$q', function($q) {
+
+        return {
+            getPicture: function(options) {
+                var q = $q.defer();
+
+                navigator.camera.getPicture(function(result) {
+                    // Do any magic you need
+                    q.resolve(result);
+                }, function(err) {
+                    q.reject(err);
+                }, options);
+
+                return q.promise;
+            }
+        }
+    }])
+
+    .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('app', {
-    url: '/app',
-    abstract: true,
-    templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
+        .state('app', {
+            url: '/app',
+            abstract: true,
+            templateUrl: 'templates/menu.html',
+            controller: 'AppCtrl'
   })
-
-  .state('app.contact', {
-          url: '/contact',
-          views: {
-              'menuContent': {
-                  templateUrl: 'templates/contact.html'
-              }
-          }
-      })
-
       .state('app.youtubeur', {
           url: '/youtubeur',
           views: {
               'menuContent': {
-                  templateUrl: 'templates/youtubeur.html'
+                  templateUrl: 'templates/youtubeur.html',
+                  controller: 'YoutubeurCtrl'
               }
           }
       })
-
-
-  .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
-    .state('app.test', {
-        url: '/test',
+      .state('app.info', {
+          url: '/info',
           views: {
               'menuContent': {
-                  templateUrl: 'templates/test.html'
+                  templateUrl: 'templates/info.html',
+                  controller: 'InfoCtrl'
               }
           }
       })
+      .state('app.accueil', {
+          url: '/accueil',
+          views: {
+              'menuContent': {
+                  templateUrl: 'templates/accueil.html',
+                  controller: 'AccueilCtrl'
+              }
+          }
+      })
+      .state('app.inscription', {
+          url: '/inscription',
+          views: {
+              'menuContent': {
+                  templateUrl: 'templates/inscription.html',
+                  controller: 'InscriptionCtrl'
+              }
+          }
+      })
+      .state('app.database', {
+          url: '/database',
+          views: {
+              'menuContent': {
+                  templateUrl: 'templates/database.html',
+                  controller: 'DatabaseCtrl'
+              }
+          }
 
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
-      }
-    }
-  });
+      })
+      .state('app.galerie', {
+          url: '/galerie',
+          views: {
+              'menuContent': {
+                  templateUrl: 'templates/galerie.html',
+                  controller: 'GalerieCtrl'
+              }
+          }
+      });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/accueil');
 });

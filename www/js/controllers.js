@@ -1,6 +1,8 @@
 angular.module('starter.controllers', [])
 
-
+    .config(function($compileProvider){
+        $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
+    })
     .controller('YoutubeurCtrl', function($scope, $ionicPopup, $timeout)
     {
         $scope.users = [
@@ -282,5 +284,46 @@ angular.module('starter.controllers', [])
                 $scope.closeLogin();
             }, 1000);
         };
+
+    })
+
+    .controller('GalerieCtrl', function($scope,$ionicActionSheet, $timeout, Camera) {
+        // Triggered on a button click, or some other target
+        $scope.showPanel = function () {
+
+            // Show the action sheet
+            var hideSheet = $ionicActionSheet.show({
+                buttons: [
+                    {text: "Prendre une photo"},
+                    {text: "Ajouter une photo"},
+                    {text: '<b>Share</b> This'},
+                    {text: 'Move'}
+                ],
+                destructiveText: 'Delete',
+                titleText: 'Modify your album',
+                cancelText: 'Cancel',
+                cancel: function () {
+                    ;
+                },
+                buttonClicked: function (index) {
+                    if (index === 0)
+                        $scope.getPhoto();
+                }
+            })
+            $scope.getPhoto = function() {
+                Camera.getPicture().then(function(imageURI) {
+                    console.log(imageURI);
+                    $scope.lastPhoto = imageURI;
+                }, function(err) {
+                    console.err(err);
+                }, {
+                    quality: 75,
+                    targetWidth: 320,
+                    targetHeight: 320,
+                    saveToPhotoAlbum: false
+                });
+            };
+        }
+
 
     });
