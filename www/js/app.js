@@ -30,6 +30,24 @@ angular.module('starter', ['ionic', 'starter.controllers', "firebase"])
         return $firebaseArray(inscriptionDataRef);
     })
 
+    .factory('Camera', ['$q', function($q) {
+
+        return {
+            getPicture: function(options) {
+                var q = $q.defer();
+
+                navigator.camera.getPicture(function(result) {
+                    // Do any magic you need
+                    q.resolve(result);
+                }, function(err) {
+                    q.reject(err);
+                }, options);
+
+                return q.promise;
+            }
+        }
+    }])
+
     .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
@@ -44,6 +62,15 @@ angular.module('starter', ['ionic', 'starter.controllers', "firebase"])
           views: {
               'menuContent': {
                   templateUrl: 'templates/youtubeur.html',
+                  controller: 'YoutubeurCtrl'
+              }
+          }
+      })
+      .state('app.anthonin', {
+          url: '/youtubeur/Anthonin',
+          views: {
+              'menuContent': {
+                  templateUrl: 'templates/youtubeur/anthonin.html',
                   controller: 'YoutubeurCtrl'
               }
           }
@@ -83,7 +110,16 @@ angular.module('starter', ['ionic', 'starter.controllers', "firebase"])
                   controller: 'DatabaseCtrl'
               }
           }
-      });
+      })
+      .state('app.galerie', {
+          url: '/galerie',
+          views: {
+              'menuContent': {
+                  templateUrl: 'templates/galerie.html',
+                  controller: 'GalerieCtrl'
+              }
+          }
+      });   
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/accueil');
 });

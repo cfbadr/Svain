@@ -11,9 +11,9 @@
 }
 
 .img-responsive {
-display: block;
-max-width: 100%;
-height: auto;
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
  .formulaire{
@@ -35,7 +35,11 @@ height: auto;
     border-color: #fff !important;
  }
 
- .tri:hover, .tri.active, .tri.activated {
+.lien{
+    text-decoration: none;
+    color: black;
+}
+ .tri:hover, .tri.active, .tri.activated, .lien:hover, .select:hover {
     border-color: red !important;
     background-color: red !important;
     color: #fff !important;
@@ -45,6 +49,12 @@ height: auto;
        margin-left: 10%;
        text-align: center;
    }
+
+
+.select{
+    text-transform: uppercase;
+}
+
 
 @media (min-width: 300px)
 {
@@ -126,4 +136,13 @@ height: auto;
 .test{
     margin-top: 15%;
     font-size: 150px;
+}
+
+/*Galerie */
+.galerie_header{
+    margin-top: 10%;
+}
+
+.galery_button{
+    margin-top: 10%;
 }

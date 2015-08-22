@@ -1,6 +1,7 @@
 <ion-view view-title="Youtubeur">
     <ion-content>
         <h1>Les Youtubeurs <img class="list" ng-click="showList()" src="../css/liste.png"></h1>
+        <div ng-click="showList()">showList()</div>
             
             <div style="text-align: center;">
                 <button class="button tri button-light" ng-click="Tous()">
@@ -36,13 +37,17 @@
             </datalist>
             </div>
             <div class="box">
-                <div ng-click="modifyList(user.nom)" class="nom" ng-repeat="user in users | filter:{display:1, nom:task}"  ng-class="{'inList': statusList}"   href="#/app/youtubeur/{{youtubeur.nom}}">
+                <div  class="nom select" ng-repeat="user in users | filter:{display:1, nom:task}">
+                <a class="lien" href="#/app/youtubeur/{{user.nom}}" >
                     <img class="img-responsive" src="../img/{{user.nom}}.jpg">
                     <br/>
-                    <p style=" text-transform: uppercase;"> <strong>{{user.nom}}</strong> </p>
+                    <p> <strong>{{user.nom}}</strong> </p>
                     <!-- <p>{{user.categorie}}</p> -->
                 </div>
+            </a>
             </div>
            
         </ion-content>
 </ion-view>
+
+<!-- ng-click="modifyList(user.nom)" "Pour ajouter dans la list de selectionner "   ng-class="{'inList': statusList}"   href="#/app/youtubeur/{{youtubeur.nom}}"-->
