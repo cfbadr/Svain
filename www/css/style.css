@@ -1,0 +1,160 @@
+/* Empty. Add your own CSS if you like */
+
+.leo{
+    border-radius: 100%;
+    width: 25%;
+    height: 100%;
+}
+.tamaman{
+    margin-top: 90px;
+    background-color: red;
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+ .formulaire{
+     border: solid red 10px;
+     background-color: #007aff;
+     border-radius: 5%;
+ }
+
+ .inList{
+     background-color: #009689;
+ }
+ .list{
+
+     widht:50px;
+     height: 50px;
+ }
+
+ .tri {
+    border-color: #fff !important;
+ }
+
+.lien{
+    text-decoration: none;
+    color: black;
+}
+ .tri:hover, .tri.active, .tri.activated, .lien:hover, .select:hover {
+    border-color: red !important;
+    background-color: red !important;
+    color: #fff !important;
+ }
+
+.box{
+       margin-left: 10%;
+       text-align: center;
+   }
+
+
+.select{
+    text-transform: uppercase;
+}
+
+
+@media (min-width: 300px)
+{
+    .nom{
+        /*border: solid black 1px;*/
+        width: 43%;
+        height: 250px;
+        float: left;
+        margin: 3px;
+    }
+}
+
+@media (min-width: 640px)
+{
+    .nom{
+        /*border: solid black 1px;*/
+        width: 29%;
+        height: 255px;
+        float: left;
+        margin: 3px
+    }
+
+}
+
+ @media (min-width: 900px)
+ {
+    .nom{
+        /*border: solid black 1px;*/
+        width: 17%;
+        float: left;
+        height: 205px;
+        margin: 3px;
+    }
+}
+
+ #info{
+     padding:5px;
+ }
+
+ strong.info{
+     text-align: center;
+     color: orangered;
+ }
+
+ .plan{
+     width: 300px;
+     height: 300px;
+ }
+
+
+ p.accueil{
+     margin-top: 30%;
+     margin-left: 10%;
+     font-size: 8em;
+ }
+ .top{
+     margin-top: 15%;
+ }
+.accueil2{
+    margin-top: 12%;
+    margin-left: 40%;
+    font-size: 2em;
+}
+.accueil{
+     font-size: 2em;
+     margin-top:15%;
+     margin-left: 10%;
+ }
+.accueil{
+     font-size: 2em;
+     margin-top:15%;
+     margin-left: 10%;
+ }
+
+.card{
+    margin-top: 20%;
+}
+
+.test{
+    margin-top: 15%;
+    font-size: 150px;
+}
+
+/*Galerie */
+.galerie_header{
+    margin-top: 10%;
+}
+
+.galery_button{
+    margin-top: 10%;
+}
+
+.divPhoto{
+    margin-top: 35%;
+}
+.photo{
+    border: solid red 1px;
+    max-width: 33%;
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+    float: left;
+}

@@ -1,0 +1,28 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">Inscription</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeinscription()">Close</button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <form ng-submit="doinscription()">
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Nom d'utilisateur</span>
+                    <input type="text" ng-model="inscriptionData.nom">
+                </label><label class="item item-input">
+                    <span class="input-label">Email</span>
+                    <input type="text" ng-model="inscriptionData.email">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Mot de passe</span>
+                    <input type="password" ng-model="inscriptionData.password">
+                </label>
+                <label class="item">
+                    <button class="button button-block button-positive" type="submit">Log in</button>
+                </label>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>
