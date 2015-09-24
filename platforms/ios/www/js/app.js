@@ -66,6 +66,15 @@ angular.module('starter', ['ionic', 'starter.controllers', "firebase"])
               }
           }
       })
+      .state('app.anthonin', {
+          url: '/youtubeur/Anthonin',
+          views: {
+              'menuContent': {
+                  templateUrl: 'templates/youtubeur/anthonin.html',
+                  controller: 'YoutubeurCtrl'
+              }
+          }
+      })
       .state('app.info', {
           url: '/info',
           views: {
@@ -84,15 +93,6 @@ angular.module('starter', ['ionic', 'starter.controllers', "firebase"])
               }
           }
       })
-      .state('app.inscription', {
-          url: '/inscription',
-          views: {
-              'menuContent': {
-                  templateUrl: 'templates/inscription.html',
-                  controller: 'InscriptionCtrl'
-              }
-          }
-      })
       .state('app.database', {
           url: '/database',
           views: {
@@ -101,7 +101,6 @@ angular.module('starter', ['ionic', 'starter.controllers', "firebase"])
                   controller: 'DatabaseCtrl'
               }
           }
-
       })
       .state('app.galerie', {
           url: '/galerie',

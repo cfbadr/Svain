@@ -24,6 +24,7 @@
 
  .inList{
      background-color: #009689;
+
  }
  .list{
 
@@ -39,42 +40,67 @@
     text-decoration: none;
     color: black;
 }
- .tri:hover, .tri.active, .tri.activated, .lien:hover, .select:hover {
+ .tri:hover, .tri.active, .tri.activated, .lien:hover, .select:hover, .test {
     border-color: red !important;
     background-color: red !important;
     color: #fff !important;
  }
 
 .box{
-       margin-left: 10%;
+       margin-left: 2%;
        text-align: center;
    }
 
 
-.select{
+/*.select{
     text-transform: uppercase;
-}
-
+}*/
 
 @media (min-width: 300px)
 {
     .nom{
         /*border: solid black 1px;*/
-        width: 43%;
-        height: 250px;
+        width: 47%;
+        height: 215px;
         float: left;
         margin: 3px;
     }
 }
 
-@media (min-width: 640px)
+@media (min-width: 374px)
 {
     .nom{
         /*border: solid black 1px;*/
-        width: 29%;
-        height: 255px;
+        width: 31%;
+        height: 190px;
+        float: left;
+        margin: 3px;
+    }
+}
+
+
+
+@media (min-width: 600px)
+{
+    .nom{
+        /*border: solid black 1px;*/
+        width: 23.5%;
+        height: 205px;
         float: left;
         margin: 3px
+    }
+
+}
+
+@media (min-width: 700px)
+{
+    .nom{
+        /*border: solid black 1px;*/
+        width: 23.5%;
+        height: 248px;
+        float: left;
+        margin: 3px;
+        text-transform: uppercase;
     }
 
 }
@@ -157,4 +183,42 @@
     -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
     transform: rotate(90deg);
     float: left;
+}
+
+
+
+
+
+
+#menu-deroulant, #menu-deroulant ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+#menu-deroulant {
+/* on centre le menu dans la page */
+    text-align: center;
+}
+#menu-deroulant li {
+/* on place les liens du menu horizontalement */
+    display: inline-block;
+}
+#menu-deroulant ul li {
+/* on enlève ce comportement pour les liens du sous menu */
+    display: inherit;
+}
+#menu-deroulant a {
+    text-decoration: none;
+    display: block;
+    color:#000;
+}
+#menu-deroulant ul {
+    position: absolute;
+/* on cache les sous menus complètement sur la gauche */
+    left: -999em;
+    text-align: left;
+}
+#menu-deroulant li:hover ul {
+/* Au survol des li du menu on replace les sous menus */
+    left: auto;
 }
