@@ -222,18 +222,19 @@ angular.module('starter.controllers', [])
 {
 
 		$scope.showList = function(){
-		if (ref.getAuth() == null)
-		{
-			$ionicPopup.alert({
-				title: 'Eweuw maggle',
-				template: "Sois pas teubé stp si t'es pas co tu peux pas voir tes Youtubeur"
-			});
-			return;
-		}
+		// if (ref.getAuth() == null)
+		// {
+		// 	$ionicPopup.alert({
+		// 		title: 'Eweuw maggle',
+		// 		template: "Sois pas teubé stp si t'es pas co tu peux pas voir tes Youtubeur"
+		// 	});
+		// 	return;
+		// }
 		var popUp = $ionicPopup.alert({
-			title: 'Tes Youtubeurs préféré ',
+			title: 'Exposant sélectionner',
 			// template: '<div class="list"><a class="item item-avatar" href="#"><img src="../img/Anjer.jpg"><h2>YOLO</h2></a></div>'
-			template: $rootScope.list.join('<div class="list"><a class="item item-avatar" href="#"><img src="../img/Anjer.jpg"><h2>YOLO</h2></a></div><br/>')
+			template: $rootScope.list.join('<br/>')
+			// <div class="list"><a class="item item-avatar" href="#"><img src="../img/Anjer.jpg"><h2>YOLO</h2></a></div>
 		});
 		$timeout(function() {
 				popUp.close(); //close the popup after 3 seconds for some reason
