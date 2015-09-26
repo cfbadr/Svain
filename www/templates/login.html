@@ -6,20 +6,23 @@
     </div>
   </ion-header-bar>
   <ion-content>
-    <form ng-submit="doLogin()">
-      <div class="list">
+    <form ng-submit="doLogin()" >
+      <div class="list  list-inset">
         <label class="item item-input">
-          <span class="input-label">Email</span>
-          <input type="text" ng-model="loginData.email">
+          <!-- <span class="input-label">Email</span> -->
+          <input type="text" placeholder="Email" ng-model="loginData.email">
         </label>
         <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="loginData.password">
+          <!-- <span class="input-label">Password</span> -->
+          <input type="password" placeholder="Password" ng-model="loginData.password">
         </label>
         <label class="item">
           <button class="button button-block button-positive" type="submit">Log in</button>
+         <!-- ==> --> <button class="button button-block button-positive" ng-click="inscription()">Creer un Compte</button>
+          <!-- A FINIR -->
         </label>
       </div>
+
     </form>
   </ion-content>
 </ion-modal-view>

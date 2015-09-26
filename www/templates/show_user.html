@@ -1,16 +1,19 @@
 <ion-view title="Mon profil">
 <ion-header-bar>
-        <div class="buttons">
-            <button class="button-dark button-clear" ng-click="closeShow_user()">Close</button>
-        </div>
-        <h1 class="title">Mon profil</h1>
-        <div class="buttons">
-            <button class="ion-ios-gear button-clear" ng-click="manage_account()"></button>
-        </div>
+		<div class="buttons">
+			<button class="button-dark button-clear" ng-click="closeShow_user()">Close</button>
+		</div>
+		<h1 class="title">Mon profil</h1>
+				<div class="buttons">
+			<button class="ion-ios-gear button-clear" ng-click="manage_account()"></button>
+		</div>
 </ion-header-bar>
-    <ion-content>
-        <p>Bienvenue {{name}}</p>
+	<ion-content>
+<!-- 		<div class="buttons">
+			<button class="ion-ios-gear button-clear" ng-click="manage_account()"> Manage your Account</button>
+		</div> -->
+		<p>Bienvenue yu {{loginData.email}}</p>
 
-    <button class="button-balanced" ng-click="Jeclick()">Button</button>
-    </ion-content>
+	<button class="button-balanced" ng-click="Jeclick()">Button</button>
+	</ion-content>
 </ion-view>

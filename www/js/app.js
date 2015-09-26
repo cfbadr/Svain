@@ -57,21 +57,21 @@ angular.module('starter', ['ionic', 'starter.controllers', "firebase"])
             templateUrl: 'templates/menu.html',
             controller: 'AppCtrl'
   })
-      .state('app.youtubeur', {
-          url: '/youtubeur',
+      .state('app.exposant', {
+          url: '/exposant',
           views: {
               'menuContent': {
-                  templateUrl: 'templates/youtubeur.html',
+                  templateUrl: 'templates/exposant.html',
                   controller: 'YoutubeurCtrl'
               }
           }
       })
-      .state('app.anthonin', {
-          url: '/youtubeur/Anthonin',
+      .state('app.profil', {
+          url: '/profil',
           views: {
               'menuContent': {
-                  templateUrl: 'templates/youtubeur/anthonin.html',
-                  controller: 'YoutubeurCtrl'
+                  templateUrl: 'templates/show_user.html',
+                  controller: 'AppCtrl'
               }
           }
       })

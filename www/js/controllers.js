@@ -8,7 +8,7 @@ angular.module('starter.controllers', [])
 {
 	$scope.changeColorPeople = function (user) {
 		if (user.color == 'white') {
-			user.color = 'red';
+			user.color = '#ef473a';
 		}
 		else {
 			user.color = 'white';
@@ -326,12 +326,15 @@ $ionicModal.fromTemplateUrl('templates/login.html', {
 }).then(function(modal) {
 	$scope.modal2 = modal;
 });
+
 $scope.closeLogin = function() {
 	$scope.modal2.hide();
 };
+
 $scope.login = function() {
 	$scope.modal2.show();
 };
+
 $scope.doLogin = function()
 {
 	ref.authWithPassword({
@@ -357,22 +360,28 @@ $ionicModal.fromTemplateUrl('templates/show_user.html', {
 }).then(function(modal) {
 	$scope.modal3 = modal;
 });
+
 $scope.closeShow_user = function() {
 	$scope.modal3.hide();
 };
+
 $scope.show_user = function() {
 	if (ref.getAuth() == null)
 	{
-		$ionicPopup.alert({
+		 var alertPopup = $ionicPopup.alert({
 			title: 'Erreur ma gueule',
 			template: "Sois pas teubé stp si ta pas de compte tu peux pas trop le voir boloss"
 		});
-		return;
+		alertPopup.then(function(res) {
+			$scope.login();
+			console.log('Thank you for not eating my delicious ice cream cone');
+		});
 	}
-	$scope.modal3.show();
+	else
+		$scope.modal3.show();
 };
 
-$scope.deconnection = function(){
+$scope.deconnexion = function(){
 	ref.unauth();
 	$scope.log = 0;
 	$scope.modal3.hide();
@@ -411,7 +420,7 @@ $scope.changePassword = function() {
 		$scope.manage_account = function(){
 			$ionicActionSheet.show({
 				buttons: [
-				{text: "Deconnection"},
+				{text: "Déconnexion"},
 				{text: "Changer de mot de passe"}
 				],
 				destructiveText: 'Delete',
@@ -422,7 +431,7 @@ $scope.changePassword = function() {
 				},
 				buttonClicked: function (index) {
 					if (index === 0)
-						$scope.deconnection();
+						$scope.deconnexion();
 					if (index === 1)
 						$scope.changePassword();
 				}
@@ -520,9 +529,9 @@ $scope.changePassword = function() {
 				{text: "Prendre une photo"},
 				{text: "Ajouter une photo"},
 				],
-				destructiveText: 'Delete',
+				destructiveText: 'Supprimer votre Compte',
 				titleText: '',
-				cancelText: 'Cancel',
+				cancelText: 'Annuler',
 				cancel: function () {
 					;
 				},
