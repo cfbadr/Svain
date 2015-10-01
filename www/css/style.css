@@ -40,11 +40,11 @@
     text-decoration: none;
     color: black;
 }
- .tri:hover, .tri.active, .tri.activated, .lien:hover, .select:hover, .test {
+/*.tri.active, .tri.activated, .lien:hover, .select:hover, .test {
     border-color: red !important;
     background-color: red !important;
     color: #fff !important;
- }
+ }*/
 
 .box{
        margin-left: 2%;

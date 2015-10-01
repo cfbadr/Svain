@@ -7,110 +7,119 @@
 angular.module('starter', ['ionic', 'starter.controllers', "firebase"])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
+	// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+	// for form inputs)
+	if (window.cordova && window.cordova.plugins.Keyboard) {
+	  cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+	  cordova.plugins.Keyboard.disableScroll(true);
 
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
+	}
+	if (window.StatusBar) {
+	  // org.apache.cordova.statusbar required
+	  StatusBar.styleDefault();
+	}
   });
 })
-    .factory("Items", function($firebaseArray) {
-    var itemsRef = new Firebase("https://luminous-fire-9407.firebaseio.com/");
-    return $firebaseArray(itemsRef);
+	.factory("Items", function($firebaseArray) {
+	var itemsRef = new Firebase("https://luminous-fire-9407.firebaseio.com/");
+	return $firebaseArray(itemsRef);
 })
 
-    .factory("InscriptionData", function($firebaseArray) {
-        var inscriptionDataRef = new Firebase("https://luminous-fire-9407.firebaseio.com/");
-        return $firebaseArray(inscriptionDataRef);
-    })
+	.factory("InscriptionData", function($firebaseArray) {
+		var inscriptionDataRef = new Firebase("https://luminous-fire-9407.firebaseio.com/");
+		return $firebaseArray(inscriptionDataRef);
+	})
 
-    .factory('Camera', ['$q', function($q) {
+	.factory('Camera', ['$q', function($q) {
 
-        return {
-            getPicture: function(options) {
-                var q = $q.defer();
+		return {
+			getPicture: function(options) {
+				var q = $q.defer();
 
-                navigator.camera.getPicture(function(result) {
-                    // Do any magic you need
-                    q.resolve(result);
-                }, function(err) {
-                    q.reject(err);
-                }, options);
+				navigator.camera.getPicture(function(result) {
+					// Do any magic you need
+					q.resolve(result);
+				}, function(err) {
+					q.reject(err);
+				}, options);
 
-                return q.promise;
-            }
-        }
-    }])
+				return q.promise;
+			}
+		}
+	}])
 
-    .config(function($stateProvider, $urlRouterProvider) {
+	.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-        .state('app', {
-            url: '/app',
-            abstract: true,
-            templateUrl: 'templates/menu.html',
-            controller: 'AppCtrl'
+		.state('app', {
+			url: '/app',
+			abstract: true,
+			templateUrl: 'templates/menu.html',
+			controller: 'AppCtrl'
   })
-      .state('app.exposant', {
-          url: '/exposant',
-          views: {
-              'menuContent': {
-                  templateUrl: 'templates/exposant.html',
-                  controller: 'YoutubeurCtrl'
-              }
-          }
-      })
-      .state('app.profil', {
-          url: '/profil',
-          views: {
-              'menuContent': {
-                  templateUrl: 'templates/show_user.html',
-                  controller: 'AppCtrl'
-              }
-          }
-      })
-      .state('app.info', {
-          url: '/info',
-          views: {
-              'menuContent': {
-                  templateUrl: 'templates/info.html',
-                  controller: 'InfoCtrl'
-              }
-          }
-      })
-      .state('app.accueil', {
-          url: '/accueil',
-          views: {
-              'menuContent': {
-                  templateUrl: 'templates/accueil.html',
-                  controller: 'AccueilCtrl'
-              }
-          }
-      })
-      .state('app.database', {
-          url: '/database',
-          views: {
-              'menuContent': {
-                  templateUrl: 'templates/database.html',
-                  controller: 'DatabaseCtrl'
-              }
-          }
-      })
-      .state('app.galerie', {
-          url: '/galerie',
-          views: {
-              'menuContent': {
-                  templateUrl: 'templates/galerie.html',
-                  controller: 'GalerieCtrl'
-              }
-          }
-      });
+	  .state('app.exposant', {
+		  url: '/VideoCity/exposant',
+		  views: {
+			  'menuContent': {
+				  templateUrl: 'templates/VideoCity/exposant.html',
+				  controller: 'YoutubeurCtrl'
+			  }
+		  }
+	  })
+	  .state('app.salon', {
+		  url: '/salon',
+		  views: {
+			  'menuContent': {
+				  templateUrl: 'templates/salon.html',
+				  controller: 'YoutubeurCtrl'
+			  }
+		  }
+	  })
+	  .state('app.profil', {
+		  url: '/profil',
+		  views: {
+			  'menuContent': {
+				  templateUrl: 'templates/show_user.html',
+				  controller: 'AppCtrl'
+			  }
+		  }
+	  })
+	  .state('app.info', {
+		  url: '/VideoCity/info',
+		  views: {
+			  'menuContent': {
+				  templateUrl: 'templates/VideoCity/info.html',
+				  controller: 'InfoCtrl'
+			  }
+		  }
+	  })
+	  .state('app.videocity', {
+		  url: '/VideoCity/accueil',
+		  views: {
+			  'menuContent': {
+				  templateUrl: 'templates/VideoCity/accueil.html',
+				  controller: 'AccueilCtrl'
+			  }
+		  }
+	  })
+	  .state('app.database', {
+		  url: '/VideoCity/database',
+		  views: {
+			  'menuContent': {
+				  templateUrl: 'templates/VideoCity/database.html',
+				  controller: 'DatabaseCtrl'
+			  }
+		  }
+	  })
+	  .state('app.galerie', {
+		  url: '/VideoCity/galerie',
+		  views: {
+			  'menuContent': {
+				  templateUrl: 'templates/VideoCity/galerie.html',
+				  controller: 'GalerieCtrl'
+			  }
+		  }
+	  });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/accueil');
+  $urlRouterProvider.otherwise('/app/salon');
 });

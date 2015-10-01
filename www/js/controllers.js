@@ -21,6 +21,15 @@ angular.module('starter.controllers', [])
 		}
 	}
 
+	$scope.conferences = [
+	{nom: 'VideoCity'},
+	{nom: 'Salon de l\'auto'},
+	{nom: 'Paris Games Week'},
+	{nom: 'VidCon'},
+	{nom: 'Paris Manga'},
+	{nom: 'Japan Expo'}
+	];
+
 	$scope.users = [
 	{nom: 'Adele ta cherie d\'amour', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'Akim Omiri', categorie: 'Humour', display:1, color:'white', clr:'black'},
@@ -36,6 +45,7 @@ angular.module('starter.controllers', [])
 	{nom: 'Golden Moustache', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'Hugo tout Seul', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'HugoPosay', categorie: 'Humour', display:1, color:'white', clr:'black'},
+	{nom: 'Jerome (La ferme Jerome)', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'Jimmy fait le con', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'Jojo Bernard', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'John Rachid', categorie: 'Humour', display:1, color:'white', clr:'black'},
@@ -46,6 +56,7 @@ angular.module('starter.controllers', [])
 	{nom: 'Le Rire Jaune', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'Les clichés de Jigmé', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'Les Kassos', categorie: 'Humour', display:1, color:'white', clr:'black'},
+	{nom: 'Leo Attali', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'Math podcast', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'Mademoiselle Gloria', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'Monsieur Poulpe', categorie: 'Humour', display:1, color:'white', clr:'black'},
@@ -60,6 +71,7 @@ angular.module('starter.controllers', [])
 	{nom: 'Studio Vrac', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'Sundy Jules', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'Serhat More', categorie: 'Humour', display:1, color:'white', clr:'black'},
+	{nom: 'Skizz Family', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'Theo Gordy', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'Tim Official Videos', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'Un panda moqueur', categorie: 'Humour', display:1, color:'white', clr:'black'},
@@ -109,6 +121,8 @@ angular.module('starter.controllers', [])
 	{nom: 'Arden Channel', categorie: 'Musique', display:1, color:'white', clr:'black'},
 	{nom: 'Anjer', categorie: 'Musique', display:1, color:'white', clr:'black'},
 	{nom: 'Cover Garden', categorie: 'Musique', display:1, color:'white', clr:'black'},
+	{nom: 'Le Comite des Reprises', categorie: 'Musique', display:1, },
+	{nom: 'PVNOVA', categorie: 'Musique', display:1, color: 'white', clr: 'black'},
 	{nom: 'Tsuko G.', categorie: 'Musique', display:1, color:'white', clr:'black'},
 
 	{nom: 'Bodytime', categorie: 'Sport', display:1, color:'white', clr:'black'},
@@ -221,24 +235,24 @@ angular.module('starter.controllers', [])
 .controller('AppCtrl', function($scope, $ionicModal, $ionicPopup, $ionicActionSheet, $timeout, $rootScope)
 {
 
-		$scope.showList = function(){
-		// if (ref.getAuth() == null)
-		// {
-		// 	$ionicPopup.alert({
-		// 		title: 'Eweuw maggle',
-		// 		template: "Sois pas teubé stp si t'es pas co tu peux pas voir tes Youtubeur"
-		// 	});
-		// 	return;
-		// }
-		var popUp = $ionicPopup.alert({
-			title: 'Exposant sélectionner',
-			// template: '<div class="list"><a class="item item-avatar" href="#"><img src="../img/Anjer.jpg"><h2>YOLO</h2></a></div>'
-			template: $rootScope.list.join('<br/>')
-			// <div class="list"><a class="item item-avatar" href="#"><img src="../img/Anjer.jpg"><h2>YOLO</h2></a></div>
-		});
-		$timeout(function() {
-				popUp.close(); //close the popup after 3 seconds for some reason
-			}, 10000);
+	$scope.showList = function(){
+	// if (ref.getAuth() == null)
+	// {
+	// 	$ionicPopup.alert({
+	// 		title: 'Eweuw maggle',
+	// 		template: "Sois pas teubé stp si t'es pas co tu peux pas voir tes Youtubeur"
+	// 	});
+	// 	return;
+	// }
+	var popUp = $ionicPopup.alert({
+		title: 'Exposant sélectionner',
+		// template: '<div class="list"><a class="item item-avatar" href="#"><img src="../img/Anjer.jpg"><h2>YOLO</h2></a></div>'
+		template: $rootScope.list.join('<br/>')
+		// <div class="list"><a class="item item-avatar" href="#"><img src="../img/Anjer.jpg"><h2>YOLO</h2></a></div>
+	});
+	$timeout(function() {
+			popUp.close(); //close the popup after 3 seconds for some reason
+		}, 10000);
 	};
 
 	var ref = new Firebase("https://luminous-fire-9407.firebaseio.com/");
@@ -258,6 +272,7 @@ angular.module('starter.controllers', [])
 		$scope.modal1.hide();
 	};
 	$scope.inscription = function() {
+		$scope.closeLogin();
 		$scope.modal1.show();
 	};
 	$scope.doinscription = function() {
@@ -374,6 +389,7 @@ $scope.show_user = function() {
 		});
 		alertPopup.then(function(res) {
 			$scope.login();
+
 			console.log('Thank you for not eating my delicious ice cream cone');
 		});
 	}

@@ -1,6 +1,6 @@
 <ion-modal-view>
   <ion-header-bar>
-    <h1 class="title">Login</h1>
+    <h1 class="title">Connexion</h1>
     <div class="buttons">
       <button class="button button-clear" ng-click="closeLogin()">Close</button>
     </div>
@@ -16,11 +16,10 @@
           <!-- <span class="input-label">Password</span> -->
           <input type="password" placeholder="Password" ng-model="loginData.password">
         </label>
-        <label class="item">
+<!--         <label class="item">
+        </label> -->
           <button class="button button-block button-positive" type="submit">Log in</button>
-         <!-- ==> --> <button class="button button-block button-positive" ng-click="inscription()">Creer un Compte</button>
-          <!-- A FINIR -->
-        </label>
+         <a class="button button-block button-positive" ng-click="inscription()">Creer un Compte</a>
       </div>
 
     </form>

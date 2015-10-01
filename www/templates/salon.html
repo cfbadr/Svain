@@ -1,0 +1,44 @@
+<ion-view view-title="Les Salons">
+	<ion-content style="background-color: #424242;">
+<!-- 		<div style="text-align: center;">
+			<button class="button tri button-light" ng-click="Tous()">
+				Tous
+			</button>
+			<button class="button tri button-light" ng-click="humour()" >
+				Humour
+			</button>
+			<button class="button tri button-light" ng-click="Beaute()">
+				Beauté
+			</button>
+			<button class="button tri button-light" ng-click="Gaming()">
+				Gaming
+			</button>
+			<button class="button tri button-light" ng-click="Sport()">
+				Sport
+			</button>
+			<button class="button tri button-light" ng-click="Musique()">
+				Musique
+			</button>
+			<button class="button tri button-light" ng-click="Education()">
+				Education
+			</button>
+		</div> -->
+<!--
+		<div>
+
+			<input type="text" placeholder="Recherche une Conference ..." list="conferences" data-ng-model="task" ng-init="task=''" style="width: 100%; text-align: center;"/>
+
+			<datalist id="conferences">
+				<option data-ng-repeat="conf in conferences" value="{{conf.nom}}" />
+			</datalist>
+		</div> -->
+		<div class="box">
+			<div class="nom select" ng-repeat="conf in conferences | orderBy:'-nom'">
+				<a href="#/app/{{conf.nom}}/accueil"><img style="border-radius: 50%; height: 138px; width: 138px; " class="img-responsive" class="img_youtubeur" src="../img/{{conf.nom}}.jpg"></a>
+				<br/>
+				<p ng-style="StyleText"> <strong>{{conf.nom}}</strong> </p>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
+
