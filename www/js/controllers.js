@@ -216,11 +216,6 @@ angular.module('starter.controllers', [])
 			console.log("Successfully created user account with uid:", userData.uid);
 			var ref = new Firebase("https://luminous-fire-9407.firebaseio.com/");
 			var usersRef = ref.child("users");
-			$ionicUser.identify({
-				user_id: '0',
-				name: 'Test User',
-				message: 'I come from planet Ion'
-			});
 			usersRef.child(userData.uid).set({
 				date_of_birth: "",
 				full_name: $scope.inscriptionData.nom,
