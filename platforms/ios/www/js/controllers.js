@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
 .config(function($compileProvider){
-	$compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
+	$compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):|data:image\//);
 })
 
 .controller('YoutubeurCtrl', function($scope, $ionicPopup, $timeout, $rootScope)
@@ -51,7 +51,7 @@ angular.module('starter.controllers', [])
 	{nom: 'John Rachid', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'Kevin Razy by Barney Gold', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'Norman', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'La chaine de Jérémy', categorie: 'Humour', display:1, color:'white', clr:'black'},
+	{nom: 'La chaine de Jérémy', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'Le Jimmy labeeu', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'Le Rire Jaune', categorie: 'Humour', display:1, color:'white', clr:'black'},
 	{nom: 'Les clichés de Jigmé', categorie: 'Humour', display:1, color:'white', clr:'black'},
@@ -81,7 +81,7 @@ angular.module('starter.controllers', [])
 	{nom: 'Caroline & Safia', categorie: 'Beauté', display:1, color:'white', clr:'black'},
 	{nom: 'Clara Channel', categorie: 'Beauté', display:1, color:'white', clr:'black'},
 	{nom: 'Chake Up', categorie: 'Beauté', display:1, color:'white', clr:'black'},
-	{nom: 'Danaëmakeup', categorie: 'Beauté', display:1, color:'white', clr:'black'},
+	{nom: 'Danaëmakeup', categorie: 'Beauté', display:1, color:'white', clr:'black'},
 	{nom: 'EnjoyPhoenix', categorie: 'Beauté', display:1, color:'white', clr:'black'},
 	{nom: 'Emy Ltr', categorie: 'Beauté', display:1, color:'white', clr:'black'},
 	{nom: 'Elsa Make up', categorie: 'Beauté', display:1, color:'white', clr:'black'},
@@ -123,7 +123,7 @@ angular.module('starter.controllers', [])
 	{nom: 'Cover Garden', categorie: 'Musique', display:1, color:'white', clr:'black'},
 	{nom: 'Le Comite des Reprises', categorie: 'Musique', display:1, },
 	{nom: 'PVNOVA', categorie: 'Musique', display:1, color: 'white', clr: 'black'},
-	{nom: 'Tsuko G.', categorie: 'Musique', display:1, color:'white', clr:'black'},
+	{nom: 'Tsuko G', categorie: 'Musique', display:1, color:'white', clr:'black'},
 
 	{nom: 'Bodytime', categorie: 'Sport', display:1, color:'white', clr:'black'},
 	{nom: 'FromHumanToGod', categorie: 'Sport', display:1, color:'white', clr:'black'},
@@ -134,7 +134,7 @@ angular.module('starter.controllers', [])
 	{nom: 'Cyrus North', categorie: 'Education', display:1, color:'white', clr:'black'},
 	{nom: 'Doc Seven', categorie: 'Education', display:1, color:'white', clr:'black'},
 	{nom: 'Sean Garnier', categorie: 'Sport', display:1, color:'white', clr:'black'},
-	{nom: 'Dr. Nozman', categorie: 'Education', display:1, color:'white', clr:'black'},
+	{nom: 'Dr Nozman', categorie: 'Education', display:1, color:'white', clr:'black'},
 	{nom: 'DidiChandouidoui', categorie: 'Education', display:1, color:'white', clr:'black'},
 	{nom: 'JunkFood Factory', categorie: 'Education', display:1, color:'white', clr:'black'},
 	{nom: 'Le Grand JD', categorie: 'Education', display:1, color:'white', clr:'black'},
@@ -150,6 +150,53 @@ angular.module('starter.controllers', [])
 
 	];
 	$rootScope.list = [];
+	$scope.users = [];
+
+	var test = new Firebase('https://luminous-fire-9407.firebaseio.com/salon/videocity/exposants/');
+	test.on('value', function(snap)
+	{
+		snap.forEach( function(user)
+		{
+			// console.log(user.val().image);
+			$scope.$apply(function()
+			{
+				$scope.users.push({nom: user.V.path.o[3]
+					, categorie: user.val().categorie
+					, display: 1
+					, color: 'white'
+					, clr: 'black'
+					, img: 'data:image/jpeg;base64, ' + user.val().image});
+			});
+			// var img = test.child(user.nom + '/image');
+
+			// console.log(user.V.path.o[3]);
+		});
+		// console.log(snap.val());
+		// var img = test.child(snap.val()+ '/image');
+	});
+	// $scope.users.forEach(function(user)
+	// {
+	// 	var img = test.child(user.nom + '/image');
+	// 	img.on("value", function(snapshot)
+	// 	{
+	// 		$scope.$apply(function()
+	// 		{
+	// 			user.img = 'data:image/jpeg;base64, ' + snapshot.val();
+	// 		});
+	// 		console.log(user.img);
+	// 	});
+	// });
+
+	// test.on("value", function(snapshot)
+	// {
+	// 	$scope.$apply(function() {
+	// 		$scope.tamer = 'data:image/jpeg;base64, ' + snapshot.val();
+	// 	})
+	// 	console.log($scope.tamer);
+	// });
+	// console.log($scope.tamer);
+
+
 
 	$scope.random = function() {
 		return 0.5 - Math.random();
@@ -161,7 +208,7 @@ angular.module('starter.controllers', [])
 			users.display =1;
 		})
 	};
-	$scope.humour = function(){
+	$scope.Humour = function(){
 		$scope.users.forEach(function(users)
 		{
 			if (users.categorie == "Humour")
