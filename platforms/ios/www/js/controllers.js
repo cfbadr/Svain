@@ -21,143 +21,39 @@ angular.module('starter.controllers', [])
 		}
 	}
 
-	$scope.conferences = [
-	{nom: 'VideoCity'},
-	{nom: 'Salon de l\'auto'},
-	{nom: 'Paris Games Week'},
-	{nom: 'VidCon'},
-	{nom: 'Paris Manga'},
-	{nom: 'Japan Expo'}
-	];
+	$scope.conferences = [];
 
-	$scope.users = [
-	{nom: 'Adele ta cherie d\'amour', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Akim Omiri', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Anthonin', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Bapt & Gael', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Brice Duan', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Canal bis', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Cyprien', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Dylan Del Rey', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Elle Mady', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Florian Nguyen', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Gonzague Tv', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Golden Moustache', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Hugo tout Seul', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'HugoPosay', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Jerome (La ferme Jerome)', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Jimmy fait le con', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Jojo Bernard', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'John Rachid', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Kevin Razy by Barney Gold', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Norman', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'La chaine de Jérémy', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Le Jimmy labeeu', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Le Rire Jaune', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Les clichés de Jigmé', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Les Kassos', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Leo Attali', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Math podcast', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Mademoiselle Gloria', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Monsieur Poulpe', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Monsieur Fun', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Nad Rich\' Hard', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Natoo', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Nicolasagne', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Pat la Realisation', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Ro et Cut TV', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Seb la Frite', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Studio Bagel', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Studio Vrac', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Sundy Jules', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Serhat More', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Skizz Family', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Theo Gordy', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Tim Official Videos', categorie: 'Humour', display:1, color:'white', clr:'black'},
-	{nom: 'Un panda moqueur', categorie: 'Humour', display:1, color:'white', clr:'black'},
+	var salonimg = new Firebase('https://luminous-fire-9407.firebaseio.com/salon/');
+	salonimg.on('value', function(snap)
+	{
+		snap.forEach(function(conf)
+		{
+			$scope.$apply(function()
+			{
+				$scope.conferences.push({nom: conf.V.path.o[1], name: conf.val().name, img: 'data:image/jpeg;base64, ' + conf.val().image});
+			});
+		});
+	});
 
-	{nom: 'Audrey Marshmaloo', categorie: 'Beauté', display:1, color:'white', clr:'black'},
-	{nom: 'Camille Witt', categorie: 'Beauté', display:1, color:'white', clr:'black'},
-	{nom: 'Caroline & Safia', categorie: 'Beauté', display:1, color:'white', clr:'black'},
-	{nom: 'Clara Channel', categorie: 'Beauté', display:1, color:'white', clr:'black'},
-	{nom: 'Chake Up', categorie: 'Beauté', display:1, color:'white', clr:'black'},
-	{nom: 'Danaëmakeup', categorie: 'Beauté', display:1, color:'white', clr:'black'},
-	{nom: 'EnjoyPhoenix', categorie: 'Beauté', display:1, color:'white', clr:'black'},
-	{nom: 'Emy Ltr', categorie: 'Beauté', display:1, color:'white', clr:'black'},
-	{nom: 'Elsa Make up', categorie: 'Beauté', display:1, color:'white', clr:'black'},
-	{nom: 'Emma Cakecup', categorie: 'Beauté', display:1, color:'white', clr:'black'},
-	{nom: 'EmmaAnyone', categorie: 'Beauté', display:1, color:'white', clr:'black'},
-	{nom: 'Georgia Secrets', categorie: 'Beauté', display:1, color:'white', clr:'black'},
-	{nom: 'Kayehhey', categorie: 'Beauté', display:1, color:'white', clr:'black'},
-	{nom: 'Lea Choue', categorie: 'Beauté', display:1, color:'white', clr:'black'},
-	{nom: 'PerfectHonesty', categorie: 'Beauté', display:1, color:'white', clr:'black'},
-	{nom: 'Rose Carpet', categorie: 'Beauté', display:1, color:'white', clr:'black'},
-	{nom: 'Style Tonic', categorie: 'Beauté', display:1, color:'white', clr:'black'},
-	{nom: 'Sweetie', categorie: 'Beauté', display:1, color:'white', clr:'black'},
-	{nom: 'Yoko-NailArt', categorie: 'Beauté', display:1, color:'white', clr:'black'},
-	{nom: 'WomenSouls', categorie: 'Beauté', display:1, color:'white', clr:'black'},
+var test = new Firebase('https://luminous-fire-9407.firebaseio.com/salon/videocity/')
+test.on('value', function(snap)
+{
+	$scope.$apply(function()
+	{
+		$rootScope.yolo = 'data:image/jpeg;base64, ' + snap.val().image
+	})
+})
 
-	{nom: 'Amixem', categorie: 'Gaming', display:1, color:'white', clr:'black'},
-	{nom: 'Aypierre', categorie: 'Gaming', display:1, color:'white', clr:'black'},
-	{nom: 'Azn Dark Production', categorie: 'Gaming', display:1, color:'white', clr:'black'},
-	{nom: 'By Sankah Officiel', categorie: 'Gaming', display:1, color:'white', clr:'black'},
-	{nom: 'CodJordan23', categorie: 'Gaming', display:1, color:'white', clr:'black'},
-	{nom: 'Cyprien Gaming', categorie: 'Gaming', display:1, color:'white', clr:'black'},
-	{nom: 'Furious Jumper', categorie: 'Gaming', display:1, color:'white', clr:'black'},
-	{nom: 'Frigiel', categorie: 'Gaming', display:1, color:'white', clr:'black'},
-	{nom: 'ItsHeavenFox', categorie: 'Gaming', display:1, color:'white', clr:'black'},
-	{nom: 'Lasalle', categorie: 'Gaming', display:1, color:'white', clr:'black'},
-	{nom: 'Mr Lev 12', categorie: 'Gaming', display:1, color:'white', clr:'black'},
-	{nom: 'No Pain No Game', categorie: 'Gaming', display:1, color:'white', clr:'black'},
-	{nom: 'Skyyart et Chelxie', categorie: 'Gaming', display:1, color:'white', clr:'black'},
-	{nom: 'Squeezie', categorie: 'Gaming', display:1, color:'white', clr:'black'},
-	{nom: 'Sup3r Konar !', categorie: 'Gaming', display:1, color:'white', clr:'black'},
-	{nom: 'Thaek | Look at me & smile', categorie: 'Gaming', display:1, color:'white', clr:'black'},
-	{nom: 'Unsterbliicher', categorie: 'Gaming', display:1, color:'white', clr:'black'},
-	{nom: 'Vinsky', categorie: 'Gaming', display:1, color:'white', clr:'black'},
-	{nom: 'Wartek Gaming', categorie: 'Gaming', display:1, color:'white', clr:'black'},
-	{nom: 'Zerator', categorie: 'Gaming', display:1, color:'white', clr:'black'},
-
-	{nom: 'Arden Channel', categorie: 'Musique', display:1, color:'white', clr:'black'},
-	{nom: 'Anjer', categorie: 'Musique', display:1, color:'white', clr:'black'},
-	{nom: 'Cover Garden', categorie: 'Musique', display:1, color:'white', clr:'black'},
-	{nom: 'Le Comite des Reprises', categorie: 'Musique', display:1, },
-	{nom: 'PVNOVA', categorie: 'Musique', display:1, color: 'white', clr: 'black'},
-	{nom: 'Tsuko G', categorie: 'Musique', display:1, color:'white', clr:'black'},
-
-	{nom: 'Bodytime', categorie: 'Sport', display:1, color:'white', clr:'black'},
-	{nom: 'FromHumanToGod', categorie: 'Sport', display:1, color:'white', clr:'black'},
-	{nom: 'Jean Onche Le Musclay', categorie: 'Sport', display:1, color:'white', clr:'black'},
-	{nom: 'Rudy Coia', categorie: 'Sport', display:1, color:'white', clr:'black'},
-	{nom: 'Tibo InShape', categorie: 'Sport', display:1, color:'white', clr:'black'},
-
-	{nom: 'Cyrus North', categorie: 'Education', display:1, color:'white', clr:'black'},
-	{nom: 'Doc Seven', categorie: 'Education', display:1, color:'white', clr:'black'},
-	{nom: 'Sean Garnier', categorie: 'Sport', display:1, color:'white', clr:'black'},
-	{nom: 'Dr Nozman', categorie: 'Education', display:1, color:'white', clr:'black'},
-	{nom: 'DidiChandouidoui', categorie: 'Education', display:1, color:'white', clr:'black'},
-	{nom: 'JunkFood Factory', categorie: 'Education', display:1, color:'white', clr:'black'},
-	{nom: 'Le Grand JD', categorie: 'Education', display:1, color:'white', clr:'black'},
-	{nom: 'Le Masuyuki', categorie: 'Education', display:1, color:'white', clr:'black'},
-	{nom: 'Les Topovaures', categorie: 'Education', display:1, color:'white', clr:'black'},
-	{nom: 'Les Express\'ions', categorie: 'Education', display:1, color:'white', clr:'black'},
-	{nom: 'Les Questions Cons', categorie: 'Education', display:1, color:'white', clr:'black'},
-	{nom: 'Nota Bene', categorie: 'Education', display:1, color:'white', clr:'black'},
-	{nom: 'Poisson Fécond - Chris', categorie: 'Education', display:1, color:'white', clr:'black'},
-	{nom: 'RougeVertBleu', categorie: 'Education', display:1, color:'white', clr:'black'},
-	{nom: 'Taupe10', categorie: 'Education', display:1, color:'white', clr:'black'},
-	{nom: 'Tea time !', categorie: 'Education', display:1, color:'white', clr:'black'}
-
-	];
 	$rootScope.list = [];
 	$scope.users = [];
 
-	var test = new Firebase('https://luminous-fire-9407.firebaseio.com/salon/videocity/exposants/');
-	test.on('value', function(snap)
+	$scope.test = "YOLO";
+
+	var videxpo = new Firebase('https://luminous-fire-9407.firebaseio.com/salon/videocity/exposants/');
+	videxpo.on('value', function(snap)
 	{
 		snap.forEach( function(user)
 		{
-			// console.log(user.val().image);
 			$scope.$apply(function()
 			{
 				$scope.users.push({nom: user.V.path.o[3]
@@ -167,36 +63,8 @@ angular.module('starter.controllers', [])
 					, clr: 'black'
 					, img: 'data:image/jpeg;base64, ' + user.val().image});
 			});
-			// var img = test.child(user.nom + '/image');
-
-			// console.log(user.V.path.o[3]);
 		});
-		// console.log(snap.val());
-		// var img = test.child(snap.val()+ '/image');
 	});
-	// $scope.users.forEach(function(user)
-	// {
-	// 	var img = test.child(user.nom + '/image');
-	// 	img.on("value", function(snapshot)
-	// 	{
-	// 		$scope.$apply(function()
-	// 		{
-	// 			user.img = 'data:image/jpeg;base64, ' + snapshot.val();
-	// 		});
-	// 		console.log(user.img);
-	// 	});
-	// });
-
-	// test.on("value", function(snapshot)
-	// {
-	// 	$scope.$apply(function() {
-	// 		$scope.tamer = 'data:image/jpeg;base64, ' + snapshot.val();
-	// 	})
-	// 	console.log($scope.tamer);
-	// });
-	// console.log($scope.tamer);
-
-
 
 	$scope.random = function() {
 		return 0.5 - Math.random();
@@ -220,7 +88,7 @@ angular.module('starter.controllers', [])
 	$scope.Beaute = function(){
 		$scope.users.forEach(function(users)
 		{
-			if (users.categorie == "Beauté")
+			if (users.categorie == "Beaute")
 				users.display =1;
 			else
 				users.display=0;

@@ -34,9 +34,9 @@
 		</div> -->
 		<div class="box">
 			<div class="nom select" ng-repeat="conf in conferences | orderBy:'-nom'">
-				<a href="#/app/{{conf.nom}}/accueil"><img style="border-radius: 50%; height: 138px; width: 138px; " class="img-responsive" class="img_youtubeur" src="../img/{{conf.nom}}.jpg"></a>
+				<a href="#/app/{{conf.nom}}/accueil"><img style="border-radius: 50%; height: 138px; width: 138px; " class="img-responsive" class="img_youtubeur" ng-src="{{conf.img}}"></a>
 				<br/>
-				<p ng-style="StyleText"> <strong>{{conf.nom}}</strong> </p>
+				<p ng-style="StyleText"> <strong>{{conf.name}}</strong> </p>
 			</div>
 		</div>
 	</ion-content>

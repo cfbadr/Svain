@@ -58,10 +58,10 @@ angular.module('starter', ['ionic', 'starter.controllers', "firebase"])
 			controller: 'AppCtrl'
   })
 	  .state('app.exposant', {
-		  url: '/VideoCity/exposant',
+		  url: '/videocity/exposant',
 		  views: {
 			  'menuContent': {
-				  templateUrl: 'templates/VideoCity/exposant.html',
+				  templateUrl: 'templates/videocity/exposant.html',
 				  controller: 'YoutubeurCtrl'
 			  }
 		  }
@@ -85,37 +85,37 @@ angular.module('starter', ['ionic', 'starter.controllers', "firebase"])
 		  }
 	  })
 	  .state('app.info', {
-		  url: '/VideoCity/info',
+		  url: '/videocity/info',
 		  views: {
 			  'menuContent': {
-				  templateUrl: 'templates/VideoCity/info.html',
+				  templateUrl: 'templates/videocity/info.html',
 				  controller: 'InfoCtrl'
 			  }
 		  }
 	  })
 	  .state('app.videocity', {
-		  url: '/VideoCity/accueil',
+		  url: '/videocity/accueil',
 		  views: {
 			  'menuContent': {
-				  templateUrl: 'templates/VideoCity/accueil.html',
+				  templateUrl: 'templates/videocity/accueil.html',
 				  controller: 'AccueilCtrl'
 			  }
 		  }
 	  })
 	  .state('app.database', {
-		  url: '/VideoCity/database',
+		  url: '/videocity/database',
 		  views: {
 			  'menuContent': {
-				  templateUrl: 'templates/VideoCity/database.html',
+				  templateUrl: 'templates/videocity/database.html',
 				  controller: 'DatabaseCtrl'
 			  }
 		  }
 	  })
 	  .state('app.galerie', {
-		  url: '/VideoCity/galerie',
+		  url: '/videocity/galerie',
 		  views: {
 			  'menuContent': {
-				  templateUrl: 'templates/VideoCity/galerie.html',
+				  templateUrl: 'templates/videocity/galerie.html',
 				  controller: 'GalerieCtrl'
 			  }
 		  }

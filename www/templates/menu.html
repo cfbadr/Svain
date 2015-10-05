@@ -3,9 +3,9 @@
 		<ion-nav-bar class="bar-assertive">
 			<ion-nav-back-button></ion-nav-back-button>
 			<ion-nav-buttons side="primary">
-				<button class="button button-icon button-clear ion-navicon" menu-toggle="primary"></button>
+				<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
 			</ion-nav-buttons>
-			<ion-nav-buttons side="secondary">
+			<ion-nav-buttons side="right">
 				<button ng-click="showList()" class="button button-icon icon ion-ios-paper"></button>
 
 <!-- <button ng-click="show_user()" class="button button-icon icon ion-ios-person"></button> -->
@@ -24,28 +24,33 @@
 		<ion-item menu-close ng-click="show_user()" style="background-image: linear-gradient(black, white);" >
 			<div style="height: 150px; width: 150px; margin-left: 50px;" >
 				<!-- <div style="background-color: black; height: 100%; border-radius: 50%;" > -->
-					<div style=" background-image: url(../img/lambda.jpg); background-size: cover; height: 140px; border-radius: 50%; border: 5px solid white; width: 140px;" ></div>
+					<div style=" background-image: url(http://graph.facebook.com/{{user.id}}/picture?width=270&height=270); background-size: cover; height: 140px; border-radius: 50%; border: 5px solid white; width: 140px;" ></div>
 				</div>
 			</div>
 			Mon profil
+			<h2>{{user.name}}</h2>
+			<p>{{user.city}}</p>
 		</ion-item>
 		<ion-list>
+			<ion-item menu-close href="#/app/profile">
+				Profile
+		</ion-item>
 			<ion-item menu-close href="#/app">
 				<p>Acceuil</p>
 			</ion-item>
 			<ion-item menu-close href="#/app/salon">
 				<p>Les salons</p>
 			</ion-item>
-			<ion-item menu-close href="#/app/VideoCity/exposant">
+			<ion-item menu-close href="#/app/videocity/exposant">
 				<p>Les exposant</p>
 			</ion-item>
-			<ion-item menu-close href="#/app/VideoCity/info">
+			<ion-item menu-close href="#/app/videocity/info">
 				<p>Information général</p>
 			</ion-item>
-			<ion-item menu-close href="#/app/VideoCity/database">
+			<ion-item menu-close href="#/app/videocity/database">
 				<p>Database</p>
 			</ion-item>
-			<ion-item menu-close href="#/app/VideoCity/galerie">
+			<ion-item menu-close href="#/app/videocity/galerie">
 				<p>Galerie</p>
 			</ion-item>
 		</ion-list>
