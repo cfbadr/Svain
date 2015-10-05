@@ -4,8 +4,14 @@ angular.module('starter.controllers', [])
 	$compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):|data:image\//);
 })
 
+<<<<<<< HEAD
 .controller('AppCtrl', function($scope, $ionicModal, $ionicPopup, $ionicActionSheet, $timeout, $rootScope, ngFB)
 {
+=======
+    .controller('AppCtrl', function($scope, $ionicModal, $ionicPopup, $ionicActionSheet, $timeout, $rootScope)
+{
+
+>>>>>>> 061556a8d44a831b25a030a29303b1e03c366eab
 	$scope.showList = function(){
 		var popUp = $ionicPopup.alert({
 			title: 'Exposant sélectionner',
@@ -100,7 +106,6 @@ angular.module('starter.controllers', [])
 	};
 
 	$scope.loginData = {};
-
 	$ionicModal.fromTemplateUrl('templates/login.html', {
 		scope: $scope
 	}).then(function(modal) {
