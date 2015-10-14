@@ -4,14 +4,8 @@ angular.module('starter.controllers', [])
 	$compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):|data:image\//);
 })
 
-<<<<<<< HEAD
-.controller('AppCtrl', function($scope, $ionicModal, $ionicPopup, $ionicActionSheet, $timeout, $rootScope, ngFB)
+.controller('AppCtrl', function($scope, $ionicModal, $ionicPopup, $ionicActionSheet, $timeout, $rootScope)
 {
-=======
-    .controller('AppCtrl', function($scope, $ionicModal, $ionicPopup, $ionicActionSheet, $timeout, $rootScope)
-{
-
->>>>>>> 061556a8d44a831b25a030a29303b1e03c366eab
 	$scope.showList = function(){
 		var popUp = $ionicPopup.alert({
 			title: 'Exposant sélectionner',
@@ -138,19 +132,6 @@ angular.module('starter.controllers', [])
 			}
 		})
 		$scope.modal2.hide();
-	};
-
-	$scope.fbLogin = function () {
-		ngFB.login({scope: 'email'}).then(
-			function (response) {
-				if (response.status === 'connected') {
-					console.log('Facebook login succeeded');
-					// $window.location.href = '#/app/profil';
-					$scope.closeLogin();
-				} else {
-					alert('Facebook login failed');
-				}
-			});
 	};
 
 	$ionicModal.fromTemplateUrl('templates/show_user.html', {

@@ -1,4 +1,101 @@
-<ion-content>
-    <h1>Je suis une page pour les test</h1>
+<style type="text/css">
+	.bare {
+		 /*font-size: 10px;*/
+		width: 30em;
+		height: 1em;
+		border-radius: 0.5em;
+		position: relative;
+		background: #f2f2f2;
+		box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+	}
 
-</ion-content>
+	.bare .percentage {
+		position: relative;
+		font-size: 1em;
+		background: tomato;
+		height: 1em;
+		border-radius: 0.5em;
+	}
+
+	.has-tip:before,
+	.has-tip:after {
+		content: "";
+		position: absolute;
+		opacity: 0;
+	}
+
+ .has-tip:before {
+		bottom: -10px;
+		right: -5px;
+		border: 5px solid;
+		border-color: transparent transparent tomato transparent;
+		transition: opacity 0.1s;
+	}
+
+	.has-tip:after {
+		content: attr(data-perc);
+		bottom: 0;
+		right: 0;
+		white-space: nowrap;
+		padding: 0.6em 1em;
+		border-radius: 2em;
+		line-height: 1;
+		color: #fff;
+		background: tomato;
+		transform: translateX(50%) translateY(100%);
+		transition: transform 0.2s, opacity 0.1s;
+	}
+
+	.has-tip:hover:before,
+	.has-tip.active:before {
+		opacity: 1;
+	}
+
+	.has-tip:hover:after,
+	.has-tip.active:after {
+		opacity: 1;
+		transform: translateX(50%) translateY(100%) translateY(10px);
+	}
+</style>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+		<h1>Je suis une page pour les test</h1>
+	<div class="bare">
+		<div class="percentage has-tip"  style="width: 50%" data-perc="50%">
+		</div>
+	</div>
+
+<script>
+	(function() {
+		var $bare, perc, start, update;
+
+		$bare = $('.percentage');
+
+		perc = 0;
+
+		update = function() {
+			$bare.css("width", perc + '%');
+			$bare.attr("perc", Math.floor(perc) + '%');
+			perc += 0.2;
+			if (Math.floor(perc) === 5) {
+				$bare.addClass('active');
+			}
+			if (Math.floor(perc) === 95) {
+				$bare.removeClass('active');
+			}
+			if (perc >= 100) {
+				return perc = 0;
+			}
+		};
+
+		start = function() {
+			var run;
+			return run = setInterval(update, 10);
+		};
+
+		start();
+
+	}).call(this);
+</script>
