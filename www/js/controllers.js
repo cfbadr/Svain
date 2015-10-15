@@ -99,6 +99,8 @@ angular.module('starter.controllers', [])
 		});
 	};
 
+	$scope.nama = $scope.inscriptionData.nom;
+
 	$scope.loginData = {};
 	$ionicModal.fromTemplateUrl('templates/login.html', {
 		scope: $scope

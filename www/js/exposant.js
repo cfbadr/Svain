@@ -17,29 +17,6 @@ angular.module('starter.controllers')
 		}
 	}
 
-	$scope.conferences = [];
-
-	var salonimg = new Firebase('https://luminous-fire-9407.firebaseio.com/salon/');
-	salonimg.on('value', function(snap)
-	{
-		snap.forEach(function(conf)
-		{
-			$scope.$apply(function()
-			{
-				$scope.conferences.push({nom: conf.V.path.o[1], name: conf.val().name, img: 'data:image/jpeg;base64, ' + conf.val().image});
-			});
-		});
-	});
-
-	var test = new Firebase('https://luminous-fire-9407.firebaseio.com/salon/videocity/')
-	test.on('value', function(snap)
-	{
-		$scope.$apply(function()
-		{
-			$rootScope.yolo = 'data:image/jpeg;base64, ' + snap.val().image
-		})
-	})
-
 	$rootScope.list = [];
 	$scope.users = [];
 
@@ -136,11 +113,11 @@ angular.module('starter.controllers')
 	$scope.modifyList = function($nom){
 		var posIndex;
 
-		if ((posIndex = $rootScope.list.indexOf($nom)) === -1) {
-			$rootScope.list.push($nom);
+		if ((posIndex = $scope.list.indexOf($nom)) === -1) {
+			$scope.list.push($nom);
 		}
 		else
-			$rootScope.list.splice(posIndex, 1);
+			$scope.list.splice(posIndex, 1);
 	};
 
 	$scope.getIndex = function(user){

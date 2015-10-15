@@ -13,7 +13,7 @@ angular.module('starter.controllers')
 
 	// Triggered in the login modal to close it
 	$scope.closeLogin = function () {
-		$scope.modal.hide();
+		$scope.modal2.hide();
 	};
 
 	// Open the login modal
@@ -23,7 +23,7 @@ angular.module('starter.controllers')
 
 	// Perform the login action when the user submits the login form
 	$scope.doLogin = function () {
-		console.log('Doing login', $scope.loginData);
+		console.log('Doing lasxogin', $scope.loginData);
 
 		// Simulate a login delay. Remove this and replace with your login
 		// code if using a login system
